@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factors</title>
+    
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" >
+  </head>
+  <body>
+    <div class = "header">
+        <h2>
+        Enter the lower and upper limit of a*c in "From" and "To" boxes respectively.
+        </h2>
+    </div>
+
+    <div class="myDiv">
+    <form method="POST">
+      {% csrf_token %} 
+      From: <br/> 
+      <input type="text" , name="N" /><br /><br/>
+      To: <br/> 
+      <input type="text" , name="t" /><br /><br/>
+      Number of questions:
+      <br/> 
+      <input type="text" , name="n" /><br/><br/> 
+      <button type="submit"> Submit</button>
+      {% comment %} <button type="submit" onclick="myFunction()" value="Reset form"> {% endcomment %}
+    </form>
+    </div>
+    
+    <div class = "questions">
+    {% for x in values %}
+  
+        <p>{{ x.vals }}</p>
+    {% endfor %} 
+    </div>
+
+
+    <input type="button" onclick="myFunction()" value="Reset form">
+
+
+  </body>
+</html>
